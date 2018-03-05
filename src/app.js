@@ -16,7 +16,23 @@ let observer = {
     }
 }
 
-Rx.Observable.fromEvent(button, 'click')
-    .subscribe(observer);
+// Rx.Observable.fromEvent(button, 'click')
+let subscription = Rx.Observable.create(function(obs) {
+    // obs.next('A value');
+    // obs.error('Error');
+    // setTimeout(() => {
+    //     obs.complete();
+    // }, 2000);
+    // obs.next('A second value');
+    
+    button.onclick = (event) => {
+        obs.next(event);
+    };
+})
+.subscribe(observer);
+
+setTimeout(() => {
+    subscription.unsubscribe();
+}, 5000);
 
     
