@@ -2,18 +2,26 @@
 
 import Rx from 'rxjs/Rx';
 
-let button = document.querySelector('button');
+let mySubject = new Rx.Subject();
 
-let observable = Rx.Observable.interval(1000);
+mySubject.subscribe({
+    next: (value) => {
+        console.log(value);
+    },
+    error: (error) => {
+        console.log(error);
+    },
+    complete: () => {
+        console.log('Completed!');
+    }
+});
 
-let observer = {
+mySubject.subscribe({
     next: (value) => {
         console.log(value);
     }
-};
+});
 
-observable.map((value) => {
-    return `Number is - ${value * 2}`;
-})
-.throttleTime(1000)
-.subscribe(observer);
+mySubject.next('New data');
+// mySubject.error('This is error');
+// mySubject.complete();
