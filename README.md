@@ -1,6 +1,18 @@
 # rxjs-homework
 
-RxJS
+RxJS lessons
 
-notes:
-- ...
+[(https://www.youtube.com/watch?v=T9wOu11uU6U&list=PL55RiY5tL51pHpagYcrN9ubNLVXF8rGVi)](https://www.youtube.com/watch?v=T9wOu11uU6U&list=PL55RiY5tL51pHpagYcrN9ubNLVXF8rGVi)
+
+List of topics:
+- observable
+- debounce
+- filter
+- mergeMap
+- operators
+- pluck
+- reduce
+- start
+- subject
+- switchMap
+- behaviorSubject
