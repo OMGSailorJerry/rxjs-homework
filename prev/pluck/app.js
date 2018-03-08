@@ -13,7 +13,10 @@ let myObserver = {
 };
 
 myObservable
+    // .map(event => event.target.value)
     .pluck('target', 'value')
+    .debounceTime(500)
+    .distinctUntilChanged()
     .subscribe(myObserver);
 
  
