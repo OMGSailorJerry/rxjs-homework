@@ -13,5 +13,11 @@ let myObserver = {
 };
 
 myObservable
+    .scan((total, currentValue) => {
+        return total + currentValue;
+    }, 0)
+    // .reduce((total, currentValue) => {
+    //     return total + currentValue;
+    // }, 0)
     .subscribe(myObserver);
 
