@@ -4,14 +4,19 @@ import Rx from 'rxjs/Rx';
 
 let input = document.querySelector('input');
 
-let myObservable = Rx.Observable.of(1, 2, 3, 4, 5);
+let myObservable = Rx.Observable.fromEvent(input, 'input');
 
 let myObserver = {
-    next: (event) => {
-        console.log(event);
+    next: (value) => {
+        console.log(value);
     }
 };
 
 myObservable
+    // .map(event => event.target.value)
+    .pluck('target', 'value')
+    .debounceTime(500)
+    .distinctUntilChanged()
     .subscribe(myObserver);
 
+ 
