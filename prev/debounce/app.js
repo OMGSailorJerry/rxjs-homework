@@ -13,5 +13,7 @@ let myObserver = {
 };
 
 myObservable
+    .debounceTime(500)
+    .distinctUntilChanged()
     .subscribe(myObserver);
 
