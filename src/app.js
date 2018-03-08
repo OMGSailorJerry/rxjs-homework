@@ -2,12 +2,13 @@
 
 import Rx from 'rxjs/Rx';
 
-let span = document.querySelector('span');
+let button = document.querySelector('button');
 
-let myObservable1 = Rx.Observable.fromEvent(input1, 'input');
+let myObservable1 = Rx.Observable.fromEvent(button, 'click');
+let myObservable2 = Rx.Observable.interval(500);
 
-let myObserver = {
-    next: value => {
-        span.textContent = value;
-    }
-};
+let observer2 = (value) => console.log(value);
+
+myObservable1
+    .switchMap(() => myObservable2)
+    .subscribe(observer2);
